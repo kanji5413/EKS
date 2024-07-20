@@ -19,7 +19,7 @@ provider "aws" {
 }
 
 resource "aws_vpc" "main" {
-    Name = "main-vpc"
-    Cidr_block = "var.vpc_cidr"
+    
+    cidr_block = "var.vpc_cidr"
     
 }

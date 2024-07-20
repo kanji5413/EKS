@@ -7,10 +7,7 @@ terraform {
   }
 }
 
-provider "aws" {
-  region  = "var.region"
-  profile = "var.profile"
-}
+
 
 resource "aws_vpc" "main" {
   cidr_block = var.vpc_cidr

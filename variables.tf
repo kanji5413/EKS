@@ -39,3 +39,13 @@ variable "environment" {
   description = "The environment"
   type        = string
 }
+
+variable "private_cidrs" {
+  description = "A list of public subnet CIDR blocks"
+  type        = list(string)
+}
+
+variable "database_cidrs" {
+  description = "A list of public subnet CIDR blocks"
+  type        = list(string)
+}

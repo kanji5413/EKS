@@ -33,6 +33,7 @@ resource "aws_subnet" "public-subnets" {
 
   tags = merge(
     local.common_tags,
+    var.public_subnet_tags,
     {
       Name = "${var.vpc_name}-public-subnet-${count.index + 1}"
     }
@@ -47,6 +48,7 @@ resource "aws_subnet" "private-subnets" {
 
   tags = merge(
     local.common_tags,
+    var.private_subnet_tags,
     {
       Name = "${var.vpc_name}-private-subnet-${count.index + 1}"
     }
@@ -62,6 +64,7 @@ resource "aws_subnet" "database-subnets" {
 
   tags = merge(
     local.common_tags,
+    var.database_subnet_tags,
     {
       Name = "${var.vpc_name}-database-subnet-${count.index + 1}"
     }

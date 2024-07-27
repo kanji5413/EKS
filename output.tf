@@ -73,6 +73,21 @@ output "security_group_id" {
   value       = aws_security_group.POC-Allow.id
 }
 
+output "public_subnet_tags" {
+  description = "Custom tags for public subnets"
+  value       = var.public_subnet_tags
+}
+
+output "database_subnet_tags" {
+  description = "Custom tags for public subnets"
+  value       = var.database_subnet_tags
+}
+
+output "private_subnet_tags" {
+  description = "Custom tags for public subnets"
+  value       = var.private_subnet_tags
+}
+
 /*
 # Encapsulate subnets in a single output for better organization
 output "subnets" {

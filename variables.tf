@@ -74,3 +74,21 @@ variable "private_routing_Table" {
   description = "The name of the private routing table"
   type        = string
 }
+
+variable "public_subnet_tags" {
+  description = "Custom tags for public subnets"
+  type        = map(string)
+  default     = {}
+}
+
+variable "private_subnet_tags" {
+  description = "Custom tags for public subnets"
+  type        = map(string)
+  default     = {}
+}
+
+variable "database_subnet_tags" {
+  description = "Custom tags for public subnets"
+  type        = map(string)
+  default     = {}
+}

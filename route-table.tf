@@ -30,6 +30,7 @@ resource "aws_route_table" "terraform-private" {
 }
 
 resource "aws_route_table_association" "terraform-public" {
+    count          = length(var.public_cidrs)
     #count = var.environment == "prod" ? 3 : length(var.public_cidrs)
     subnet_id = "${element(aws_subnet.public-subnets.*.id, count.index)}"
     route_table_id = "${aws_route_table.terraform-public.id}"
@@ -44,9 +45,17 @@ resource "aws_route_table_association" "terraform-public" {
 }
 */
 
+resource "aws_route_table_association" "terraform-private" {
+  count          = length(concat(var.private_cidrs, var.database_cidrs))
+  subnet_id      = element(concat(aws_subnet.private-subnets.*.id, aws_subnet.database-subnets.*.id), count.index)
+  route_table_id = aws_route_table.terraform-private.id
+}
+
+/*
 #if you want two subnets in single route table like database and private 
 resource "aws_route_table_association" "terraform-private" {
   #count          = var.environment == "prod" ? 3 : length(concat(var.private_cidrs, var.database_cidrs))
   subnet_id      = element(concat(aws_subnet.private-subnets.*.id, aws_subnet.database-subnets.*.id), count.index)
   route_table_id = "${aws_route_table.terraform-private.id}"
 }
+*/

@@ -49,3 +49,28 @@ variable "database_cidrs" {
   description = "A list of public subnet CIDR blocks"
   type        = list(string)
 }
+
+variable "IGW_name" {
+  description = "The name of the Internet Gateway"
+  type        = string
+}
+
+variable "Nat" {
+  description = "The name of the NAT Gateway"
+  type        = string
+}
+
+variable "Secuirty-group" {
+  description = "The name of the Security Group"
+  type        = string
+}
+
+variable "public_routing_Table" {
+  description = "The name of the public routing table"
+  type        = string
+}
+
+variable "private_routing_Table" {
+  description = "The name of the private routing table"
+  type        = string
+}
